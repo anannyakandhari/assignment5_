@@ -28,8 +28,9 @@ VALID_TASKS = [
 
 def chatbot():
     """Performs the Chatbot functionality."""
-    COMPANY_NAME = "PiXELL River Financial"
-
+    COMPANY_NAME = "PIXELL River Financial"
+    print(f"Welcome! I'm the {COMPANY_NAME} Chatbot! Let's get chatting!")
+    
 def check_balance(account_number):
      #Display the balance for the give account.
      try:
@@ -40,14 +41,13 @@ def check_balance(account_number):
 #add make_deposit()
 def make_deposit (account_number):
 
-     try:
+    try:
         amount = float(input("enter the amount to deposite: "))
-     except ValueError:
+    except ValueError:
         print("Invalid amount.please enter a number.")
         return
         ACCOUNTS[account_number]["balance"] += amount
         print(f"${amount:.2f} deposited successfully.")
-
 
 
     # Print welcome message
