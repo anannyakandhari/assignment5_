@@ -60,13 +60,11 @@ def make_deposit (account_number):
         print("Invalid input. Account number must be numbers only.")
         return
     
-        if account_number is not ACCOUNTS:
-        print("Account not found. please try again later.")
-        return
+if account_number not in ACCOUNTS:
+     print("Account not found. please try again ")
 
-      
     # Print thank you message
-        print(f"Thank you for banking with {COMPANY_NAME}.")
+     print(f"Thank you for banking with {COMPANY_NAME}.")
 
 if __name__ == "__main__":
     chatbot()
