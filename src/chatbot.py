@@ -7,8 +7,8 @@ Example:
     $ python src/chatbot.py
 """
 
-__author__ = ""
-__version__ = ""
+__author__ = "Anannya"
+__version__ = "1.0"
 __credits__ = "COMP-1327 Faculty"
 
 ACCOUNTS = {
@@ -30,12 +30,43 @@ def chatbot():
     """Performs the Chatbot functionality."""
     COMPANY_NAME = "PiXELL River Financial"
 
-    # Print welcome message
-    print(f"Welcome! I'm the {COMPANY_NAME} Chatbot! "
-          f"Let's get chatting!")
+def check_balance(account_number):
+     #Display the balance for the give account.
+     try:
+         balance = ACCOUNTS[account_number]["balance"]
+         print(f"Your current balance is ${"balance"}")
+     except KeyError:
+        print("Error: Account not found.")
+#add make_deposit()
+def make_deposit (account_number):
 
+     try:
+        amount = float(input("enter the amount to deposite: "))
+     except ValueError:
+        print("Invalid amount.please enter a number.")
+        return
+        ACCOUNTS[account_number]["balance"] += amount
+        print(f"${amount:.2f} deposited successfully.")
+
+
+
+    # Print welcome message
+        print(f"Welcome! I'm the {COMPANY_NAME} Chatbot! "
+          f"Let's get chatting!")
+    
+     try:
+        account_number = int(input("Please enter your 6-digit account number: "))
+     except ValueError:
+        print("Invalid input. Account number must be numbers only.")
+        return
+    
+        if account_number is not in ACCOUNTS:
+        print("Account not found. please try again later.")
+        return
+
+      
     # Print thank you message
-    print(f"Thank you for banking with {COMPANY_NAME}.")
+        print(f"Thank you for banking with {COMPANY_NAME}.")
 
 if __name__ == "__main__":
     chatbot()
